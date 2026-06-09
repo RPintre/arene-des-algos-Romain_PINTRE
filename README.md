@@ -14,7 +14,7 @@ Pourquoi :
 
 En resume, le code privilegie la suppression quand la perte d'information est minime, et bascule vers l'imputation quand il faut proteger davantage de donnees.
 
-### Phase 3 - `encoder_features`
+## Phase 3 - `encoder_features`
 
 Cette étape transforme toutes les colonnes catégorielles en variables numériques pour pouvoir entraîner un modèle.
 
@@ -40,3 +40,10 @@ Je la traite comme une variable nominale et non comme une variable ordinale, car
 
 `customerID` est supprimée avant l'encodage, car c'est un identifiant unique et non une variable prédictive.  
 Si on l'encodait par erreur en One-Hot, on créerait une colonne par client, ce qui provoquerait une explosion du nombre de dimensions sans apporter d'information utile. Ce qui ferait dont 7043 colonnes en plus.
+
+## Phase 6
+### Interprétation métier des variables les plus discriminantes
+
+Même si les deux méthodes ne donnent pas exactement le même classement, elles mettent souvent en avant les mêmes variables, comme Contract, tenure et parfois MonthlyCharges.
+
+L'importance de Contract et tenure montre que les clients récents ou engagés sur une courte durée sont plus susceptibles de résilier. L'intérêt est donc de relier les résultats du modèle à une interprétation métier concrète.
